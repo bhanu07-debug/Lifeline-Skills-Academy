@@ -1,0 +1,6 @@
+{
+  "name": "Life Line Skills Academy",
+  "description": "Life Line Skills Academy Pvt. Ltd. - Premier healthcare education, vocational training, and clinical skills academy in Nepal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
