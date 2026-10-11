@@ -30,6 +30,7 @@ export interface Course {
   published: boolean;
   featured: boolean;
   themeColor: 'blue' | 'teal' | 'emerald' | 'cyan';
+  image?: string;
 }
 
 export type ApplicationStatus = 'New' | 'Reviewing' | 'Contacted' | 'Accepted' | 'Rejected' | 'Completed';
@@ -143,4 +144,5 @@ export interface WebsiteSettings {
   tiktokUrl: string;
   noticeActive: boolean;
   noticeText: string;
+  logoUrl?: string;
 }

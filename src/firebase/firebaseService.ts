@@ -35,15 +35,24 @@ const STORAGE_KEYS = {
   ADMIN_AUTH: 'llsa_admin_session_v1',
 };
 
-// Helper for local storage retrieval with default fallback
+// Helper for local storage retrieval with default fallback & Butwal location migration
 function getLocalData<T>(key: string, defaultValue: T): T {
   try {
-    const item = localStorage.getItem(key);
-    if (!item) {
+    const raw = localStorage.getItem(key);
+    if (!raw) {
       localStorage.setItem(key, JSON.stringify(defaultValue));
       return defaultValue;
     }
-    return JSON.parse(item) as T;
+    // Automatically sanitize and migrate any legacy 'Kathmandu' entries to 'Butwal'
+    let migratedRaw = raw;
+    if (migratedRaw.includes('Kathmandu')) {
+      migratedRaw = migratedRaw
+        .replace(/Bagbazar Marg, Ward No\. 28, Kathmandu/g, 'Hospital Line, Ward No. 9, Butwal')
+        .replace(/Kathmandu, Bagmati Province/g, 'Butwal, Lumbini Province')
+        .replace(/Kathmandu/g, 'Butwal');
+      localStorage.setItem(key, migratedRaw);
+    }
+    return JSON.parse(migratedRaw) as T;
   } catch (error) {
     console.error(`Error reading ${key} from storage:`, error);
     return defaultValue;
@@ -76,12 +85,21 @@ export const FirebaseService = {
   // --- COURSES ---
   getCourses(includeUnpublished = false): Course[] {
     const all = getLocalData<Course[]>(STORAGE_KEYS.COURSES, initialCourses);
-    if (includeUnpublished) return all;
-    return all.filter(c => c.published);
+    const withImages = all.map((course) => {
+      if (!course.image) {
+        const found = initialCourses.find((ic) => ic.id === course.id || ic.slug === course.slug);
+        if (found?.image) {
+          return { ...course, image: found.image };
+        }
+      }
+      return course;
+    });
+    if (includeUnpublished) return withImages;
+    return withImages.filter(c => c.published);
   },
 
   getCourseBySlug(slug: string): Course | undefined {
-    const all = getLocalData<Course[]>(STORAGE_KEYS.COURSES, initialCourses);
+    const all = this.getCourses(true);
     return all.find(c => c.slug === slug || c.id === slug);
   },
 
@@ -108,9 +126,10 @@ export const FirebaseService = {
       duration: courseData.duration || '3 Months',
       eligibility: courseData.eligibility || 'SEE / +2 Passed',
       fee: courseData.fee || 'NRs. 30,000',
-      location: courseData.location || 'Life Line Simulation Lab, Kathmandu',
+      location: courseData.location || 'Life Line Simulation Lab, Butwal',
       intakeSchedule: courseData.intakeSchedule || 'Monthly',
       themeColor: courseData.themeColor || 'blue',
+      image: courseData.image || '',
       published: courseData.published ?? true,
       featured: courseData.featured ?? false,
       learningOutcomes: courseData.learningOutcomes || [],

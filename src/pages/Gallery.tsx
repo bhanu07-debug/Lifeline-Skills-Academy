@@ -41,7 +41,7 @@ export const Gallery: React.FC = () => {
             Simulation Lab & Training Gallery
           </h1>
           <p className="text-slate-300 text-base leading-relaxed">
-            Take a visual tour of our hands-on clinical training suites, phlebotomy benches, emergency life support drills, and student graduation milestones in Kathmandu.
+            Take a visual tour of our hands-on clinical training suites, phlebotomy benches, emergency life support drills, and student graduation milestones in Butwal.
           </p>
         </div>
       </div>
@@ -98,7 +98,7 @@ export const Gallery: React.FC = () => {
               {/* Caption & Date */}
               <div className="p-5 space-y-2">
                 <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                  {item.description || 'Clinical simulation training session at Kathmandu Campus.'}
+                  {item.description || 'Clinical simulation training session at Butwal Campus.'}
                 </p>
                 {item.date && (
                   <div className="flex items-center gap-1.5 text-[11px] text-slate-400 font-medium pt-2 border-t border-slate-100">
@@ -134,7 +134,7 @@ export const Gallery: React.FC = () => {
                   {activeModalItem.title}
                 </h2>
                 <p className="text-xs text-slate-300 mt-1">
-                  Life Line Clinical Simulation Lab, Bagbazar, Kathmandu
+                  Life Line Clinical Simulation Lab, Hospital Line, Butwal
                 </p>
               </div>
 

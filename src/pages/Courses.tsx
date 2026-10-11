@@ -13,7 +13,7 @@ export const Courses: React.FC = () => {
     title: 'Healthcare Courses & Clinical Skills Training',
     description: 'Explore certified healthcare courses in Nepal: Elderly Caregiver, Clinical Lab Assistant, Emergency First Aid BLS CPR, and Dental Assistant.',
     canonicalPath: '/courses',
-    keywords: ['healthcare courses in Nepal', 'caregiver training Kathmandu', 'BLS CPR course Nepal', 'lab technician skills']
+    keywords: ['healthcare courses in Nepal', 'caregiver training Butwal', 'BLS CPR course Nepal', 'lab technician skills Butwal']
   });
 
   const categories = [

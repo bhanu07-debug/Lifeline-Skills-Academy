@@ -4,21 +4,22 @@ export const initialSettings: WebsiteSettings = {
   academyName: 'Life Line Skills Academy Pvt. Ltd.',
   tagline: 'Healthcare Education & Clinical Skills Training in Nepal',
   registrationNumber: 'Reg. No: 289140/079/080 (Company Registrar Office, Nepal)',
-  phone: '+977-1-4245890',
-  alternatePhone: '+977-9851234567',
+  phone: '+977-71-540123',
+  alternatePhone: '+977-9857012345',
   email: 'info@lifelineskillsacademy.com.np',
   zohoMailStatus: 'Zoho Mail Active (Do not alter existing Zoho MX/SPF/DKIM DNS)',
-  address: 'Bagbazar Marg, Ward No. 28, Kathmandu, Nepal',
-  landmark: 'Near City Center Plaza & Pradarshani Marg Junction',
-  city: 'Kathmandu, Bagmati Province, Nepal',
+  address: 'Hospital Line, Ward No. 9, Butwal, Rupandehi, Nepal',
+  landmark: 'Near Lumbini Hospital Line & Traffic Chowk',
+  city: 'Butwal, Lumbini Province, Nepal',
   openingHours: 'Sun – Fri: 7:00 AM – 6:00 PM | Sat: 8:00 AM – 2:00 PM',
-  whatsappNumber: '+9779851234567',
+  whatsappNumber: '+9779857012345',
   facebookUrl: 'https://facebook.com',
   instagramUrl: 'https://instagram.com',
   youtubeUrl: 'https://youtube.com',
   tiktokUrl: 'https://tiktok.com',
   noticeActive: true,
-  noticeText: 'Admissions Open for Summer 2025 Batches: Caregiver, Lab Assistant, and Emergency BLS. Limited clinical seats per cohort.'
+  noticeText: 'Admissions Open for Summer 2025 Batches: Caregiver, Lab Assistant, and Emergency BLS. Limited clinical seats per cohort.',
+  logoUrl: '/official-logo.png'
 };
 
 export const initialCourses: Course[] = [
@@ -32,9 +33,10 @@ export const initialCourses: Course[] = [
     duration: '3 Months (240 Hours) + 1 Month Hospital Practicum',
     eligibility: 'Minimum SEE (Secondary Education Examination) or +2 passed (Any stream)',
     fee: 'NRs. 38,000 (Flexible 2-stage installment)',
-    location: 'Life Line Simulation Lab, Kathmandu',
+    location: 'Life Line Simulation Lab, Butwal',
     intakeSchedule: '1st and 15th of Every Nepali Month',
     themeColor: 'teal',
+    image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80',
     published: true,
     featured: true,
     learningOutcomes: [
@@ -109,7 +111,7 @@ export const initialCourses: Course[] = [
       },
       {
         question: 'Is practical hospital exposure included in the fee?',
-        answer: 'Yes, hospital observation and practical simulation sessions in our Kathmandu laboratory are fully included in the curriculum.'
+        answer: 'Yes, hospital observation and practical simulation sessions in our Butwal laboratory are fully included in the curriculum.'
       },
       {
         question: 'Does the academy provide verifiable certificates?',
@@ -127,9 +129,10 @@ export const initialCourses: Course[] = [
     duration: '3.5 Months (280 Hours)',
     eligibility: '+2 Science or SEE with Science or Lab Technology students',
     fee: 'NRs. 42,000',
-    location: 'Life Line Clinical Diagnostic Lab, Kathmandu',
+    location: 'Life Line Clinical Diagnostic Lab, Butwal',
     intakeSchedule: 'First Sunday of Every Month',
     themeColor: 'blue',
+    image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80',
     published: true,
     featured: true,
     learningOutcomes: [
@@ -203,8 +206,8 @@ export const initialCourses: Course[] = [
         answer: 'Yes. Trainees practice extensively on anatomical phlebotomy training arms with artificial venous blood flow before advancing to supervised clinical draws.'
       },
       {
-        question: 'What are the career options in Kathmandu or outside?',
-        answer: 'Graduates work in polyclinics, private hospitals, community pathology labs, and diagnostic screening camps across Nepal.'
+        question: 'What are the career options in Butwal or across Nepal and abroad?',
+        answer: 'Graduates work in polyclinics, private hospitals, community pathology labs, and diagnostic screening camps across Butwal, Lumbini Province, and nationwide.'
       }
     ]
   },
@@ -221,6 +224,7 @@ export const initialCourses: Course[] = [
     location: 'Life Line Auditorium & Simulation Hall',
     intakeSchedule: 'Every Friday – Sunday Batch',
     themeColor: 'blue',
+    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80',
     published: true,
     featured: true,
     learningOutcomes: [
@@ -299,9 +303,10 @@ export const initialCourses: Course[] = [
     duration: '2.5 Months (200 Hours)',
     eligibility: 'Minimum SEE passed (High school)',
     fee: 'NRs. 32,000',
-    location: 'Life Line Dental Skills Suite, Kathmandu',
+    location: 'Life Line Dental Skills Suite, Butwal',
     intakeSchedule: 'Mid-Month Intakes',
     themeColor: 'teal',
+    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80',
     published: true,
     featured: false,
     learningOutcomes: [
@@ -323,7 +328,7 @@ export const initialCourses: Course[] = [
     benefits: [
       'Fully equipped clinical dental unit for simulator practice',
       'Complete orientation on all standard dental burs and handpieces',
-      'High placement demand in expanding Kathmandu dental clinics'
+      'High placement demand in expanding Butwal and regional dental clinics'
     ],
     syllabus: [
       {
@@ -359,7 +364,7 @@ export const initialCourses: Course[] = [
     faqs: [
       {
         question: 'Are dental clinics actively hiring trained assistants in Nepal?',
-        answer: 'Yes, modern dental clinics in Kathmandu, Pokhara, Chitwan, and other hubs consistently look for trained assistants who understand sterilization and instrument handover.'
+        answer: 'Yes, modern dental clinics in Butwal, Bhairahawa, Chitwan, Pokhara, and across Nepal consistently look for trained assistants who understand sterilization and instrument handover.'
       }
     ]
   },
@@ -373,9 +378,10 @@ export const initialCourses: Course[] = [
     duration: '3 Months (220 Hours)',
     eligibility: '+2 (Any Stream, Science or Management preferred) or SEE with experience',
     fee: 'NRs. 28,000',
-    location: 'Life Line Pharmacy Simulation Unit, Kathmandu',
+    location: 'Life Line Pharmacy Simulation Unit, Butwal',
     intakeSchedule: 'Monthly on the 10th',
     themeColor: 'cyan',
+    image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=800&q=80',
     published: true,
     featured: false,
     learningOutcomes: [
@@ -448,6 +454,7 @@ export const initialCourses: Course[] = [
     location: 'Life Line Clinical Simulation Suite',
     intakeSchedule: 'Quarterly Batches',
     themeColor: 'blue',
+    image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80',
     published: true,
     featured: true,
     learningOutcomes: [
@@ -529,7 +536,7 @@ export const initialTestimonials: Testimonial[] = [
     year: 'Batch 2024',
     rating: 5,
     quote: 'Phlebotomy always made me nervous until I joined Life Line. Practicing on simulation arms with vacuum collection tubes gave me the precision I needed. The instructors are supportive and patient.',
-    currentWorkplace: 'Diagnostic Lab Assistant, Kathmandu',
+    currentWorkplace: 'Diagnostic Lab Assistant, Butwal',
     published: true
   },
   {
@@ -643,7 +650,7 @@ A blood sample is only as good as the technique used to collect it. Hemolyzed sp
 - Release the tourniquet before withdrawing the needle.
 - Instruct the patient to apply direct firm pressure with gauze for 3 to 5 minutes without bending the elbow.
 
-Learn more hands-on diagnostic laboratory techniques in our Kathmandu laboratory suites.
+Learn more hands-on diagnostic laboratory techniques in our Butwal laboratory suites.
     `,
     category: 'Clinical Skills',
     author: 'Ramesh KC, BMLT',
@@ -786,7 +793,7 @@ export const initialApplications: Application[] = [
     fullName: 'Kamala Karki',
     email: 'kamala.karki@example.com',
     phone: '9841234890',
-    address: 'Koteshwor-32, Kathmandu',
+    address: 'Kalikanagar-11, Butwal',
     dateOfBirth: '2002-05-18',
     gender: 'Female',
     courseId: 'course-caregiver',
@@ -804,7 +811,7 @@ export const initialApplications: Application[] = [
     fullName: 'Pradip Rai',
     email: 'pradip.rai@example.com',
     phone: '9860123984',
-    address: 'Dharan-15, Sunsari (Relocating to Kathmandu)',
+    address: 'Tilottama-4, Rupandehi (Near Butwal)',
     dateOfBirth: '2001-08-22',
     gender: 'Male',
     courseId: 'course-lab-assistant',

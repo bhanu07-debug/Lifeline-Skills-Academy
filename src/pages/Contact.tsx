@@ -66,7 +66,7 @@ export const Contact: React.FC = () => {
             Contact Life Line Skills Academy
           </h1>
           <p className="text-slate-300 text-base leading-relaxed">
-            Visit our clinical simulation campus in Kathmandu, speak with an admissions advisor, or send us an inquiry online.
+            Visit our official head office and clinical simulation campus in Butwal, speak with an admissions advisor, or send us an inquiry online.
           </p>
         </div>
       </div>
@@ -86,7 +86,7 @@ export const Contact: React.FC = () => {
               <div className="p-5 bg-white rounded-2xl border border-slate-200 flex items-start gap-4 shadow-xs">
                 <MapPin className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-bold text-slate-900 text-sm">Kathmandu Campus Address</p>
+                  <p className="font-bold text-slate-900 text-sm">Official Head Office & Campus Address</p>
                   <p className="text-slate-600 mt-1">{settings.address}</p>
                   <p className="text-xs text-slate-400 mt-0.5">{settings.landmark}</p>
                   <p className="text-xs text-teal-700 font-semibold mt-1">{settings.city}</p>
@@ -270,9 +270,9 @@ export const Contact: React.FC = () => {
         <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-8 space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="font-bold text-slate-900 text-lg">Campus Map & Directions</h3>
+              <h3 className="font-bold text-slate-900 text-lg">Head Office Map & Directions</h3>
               <p className="text-xs text-slate-500">
-                Bagbazar Educational Hub, easily accessible from Ratna Park, Putalisadak, and Bhrikutimandap.
+                Centrally located in Butwal along Hospital Line, easily accessible from Traffic Chowk and Bus Park.
               </p>
             </div>
             <a
@@ -287,16 +287,16 @@ export const Contact: React.FC = () => {
 
           <div className="h-64 sm:h-80 w-full rounded-2xl bg-slate-100 border border-slate-200 relative overflow-hidden flex flex-col items-center justify-center text-center p-6">
             <MapPin className="w-10 h-10 text-teal-600 animate-bounce mb-2" />
-            <p className="font-bold text-slate-900 text-sm">Life Line Skills Academy Pvt. Ltd.</p>
+            <p className="font-bold text-slate-900 text-sm">Life Line Skills Academy Pvt. Ltd. (Head Office)</p>
             <p className="text-xs text-slate-600 max-w-sm mt-1">
-              Bagbazar Marg, Ward 28, Kathmandu (Between Putalisadak Chowk and Ratnapark)
+              {settings.address}
             </p>
             <div className="mt-4 flex gap-3 text-xs">
               <span className="px-3 py-1 bg-white rounded-lg border border-slate-200 text-slate-700">
-                Landmark: Near City Center Plaza
+                Landmark: Near Traffic Chowk & Hospital Line
               </span>
               <span className="px-3 py-1 bg-teal-50 border border-teal-200 text-teal-800 rounded-lg">
-                100m from Bagbazar Bus Stop
+                Centrally Connected in Butwal
               </span>
             </div>
           </div>

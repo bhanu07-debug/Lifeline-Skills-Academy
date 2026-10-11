@@ -28,7 +28,7 @@ export const About: React.FC = () => {
             About Life Line Skills Academy
           </h1>
           <p className="text-slate-300 text-base leading-relaxed">
-            Established in Kathmandu, Nepal, Life Line Skills Academy Pvt. Ltd. delivers rigorous, hands-on clinical and healthcare vocational training designed to produce competent, empathetic caregivers and clinical technicians.
+            Established in Butwal, Nepal, Life Line Skills Academy Pvt. Ltd. delivers rigorous, hands-on clinical and healthcare vocational training designed to produce competent, empathetic caregivers and clinical technicians.
           </p>
         </div>
       </div>
@@ -199,7 +199,7 @@ export const About: React.FC = () => {
             Have Questions About Admissions or Lab Visits?
           </h3>
           <p className="text-slate-600 text-sm max-w-xl mx-auto">
-            We welcome prospective students and parents to visit our simulation labs in Bagbazar, Kathmandu to observe ongoing classes.
+            We welcome prospective students and parents to visit our simulation labs and official head office in Butwal to observe ongoing classes.
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link

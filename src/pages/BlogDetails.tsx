@@ -133,7 +133,7 @@ export const BlogDetails: React.FC = () => {
         <div className="p-8 bg-gradient-to-br from-blue-900 to-slate-900 rounded-2xl text-white space-y-4 shadow-xl">
           <div className="flex items-center gap-2 text-teal-300 font-bold text-xs uppercase tracking-wider">
             <GraduationCap className="w-4 h-4" />
-            <span>Practice These Skills Live in Kathmandu</span>
+            <span>Practice These Skills Live in Butwal</span>
           </div>
           <h3 className="text-2xl font-bold">
             Interested in Hands-On Healthcare Training?

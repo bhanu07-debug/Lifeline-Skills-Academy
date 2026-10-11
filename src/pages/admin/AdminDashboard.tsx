@@ -365,7 +365,7 @@ export const AdminDashboard: React.FC = () => {
                       duration: '3 Months (240 Hours)',
                       eligibility: 'SEE / +2 Passed',
                       fee: 'NRs. 35,000',
-                      location: 'Kathmandu Simulation Lab',
+                      location: 'Butwal Simulation Lab',
                       intakeSchedule: 'Monthly Intake',
                       shortDescription: '',
                       description: '',
@@ -393,6 +393,17 @@ export const AdminDashboard: React.FC = () => {
                     className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 flex flex-col justify-between space-y-4"
                   >
                     <div className="space-y-2">
+                      {/* Image Thumbnail */}
+                      {c.image ? (
+                        <div className="h-28 w-full rounded-xl overflow-hidden relative border border-slate-200 bg-slate-100">
+                          <img src={c.image} alt={c.title} className="w-full h-full object-cover" />
+                        </div>
+                      ) : (
+                        <div className="h-16 w-full rounded-xl border border-dashed border-slate-200 bg-slate-50 flex items-center justify-center text-slate-400 text-xs">
+                          <span>No Image (Gradient Icon Mode)</span>
+                        </div>
+                      )}
+
                       <div className="flex items-center justify-between text-xs">
                         <span className="font-semibold text-teal-700 uppercase">{c.category}</span>
                         <span
@@ -857,7 +868,7 @@ export const AdminDashboard: React.FC = () => {
                       saveGalleryItem({
                         title,
                         category: 'Practical Labs',
-                        description: 'Clinical laboratory training activity in Kathmandu campus.'
+                        description: 'Clinical laboratory training activity in Butwal campus.'
                       });
                       showToast('Gallery item created');
                     }
@@ -913,6 +924,57 @@ export const AdminDashboard: React.FC = () => {
                   />
                 </div>
 
+                {/* Official Logo Customizer */}
+                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <span className="font-bold text-xs text-slate-900 block">Official Academy Logo</span>
+                      <span className="text-[11px] text-slate-500">
+                        Upload your official logo file (PNG, JPG, SVG) or paste an image URL to replace the demo logo.
+                      </span>
+                    </div>
+                    {settings.logoUrl && (
+                      <div className="w-12 h-12 bg-white rounded-lg border border-slate-200 p-1 flex items-center justify-center shrink-0">
+                        <img
+                          src={settings.logoUrl}
+                          alt="Official Logo Preview"
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <input
+                      type="text"
+                      value={settings.logoUrl || ''}
+                      onChange={(e) => updateSettings({ logoUrl: e.target.value })}
+                      placeholder="e.g. /official-logo.png or https://.../logo.png"
+                      className="flex-1 p-2 text-xs bg-white border border-slate-200 rounded-lg"
+                    />
+                    <label className="cursor-pointer inline-flex items-center justify-center px-4 py-2 bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold rounded-lg transition-colors shrink-0">
+                      Upload Logo
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            const reader = new FileReader();
+                            reader.onloadend = () => {
+                              if (typeof reader.result === 'string') {
+                                updateSettings({ logoUrl: reader.result });
+                              }
+                            };
+                            reader.readAsDataURL(file);
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <label className="block text-xs font-bold uppercase text-slate-700">Primary Phone</label>
@@ -947,7 +1009,7 @@ export const AdminDashboard: React.FC = () => {
                 </div>
 
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold uppercase text-slate-700">Kathmandu Address</label>
+                  <label className="block text-xs font-bold uppercase text-slate-700">Official Head Office Address (Butwal)</label>
                   <input
                     type="text"
                     value={settings.address}
@@ -1190,6 +1252,105 @@ export const AdminDashboard: React.FC = () => {
                   placeholder="1-line summary for cards"
                   className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl"
                 />
+              </div>
+
+              {/* Course Featured Image & Upload Manager */}
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                <div className="flex items-center justify-between">
+                  <label className="block font-bold text-slate-800 uppercase text-[11px]">
+                    Course Featured Image (Card Banner)
+                  </label>
+                  {editingCourse.image && (
+                    <button
+                      type="button"
+                      onClick={() => setEditingCourse({ ...editingCourse, image: '' })}
+                      className="text-red-600 hover:text-red-700 font-bold text-[11px]"
+                    >
+                      Clear Image
+                    </button>
+                  )}
+                </div>
+
+                {/* Live Card Preview */}
+                {editingCourse.image ? (
+                  <div className="relative h-36 rounded-xl overflow-hidden border border-slate-300 shadow-xs">
+                    <img
+                      src={editingCourse.image}
+                      alt="Course Preview"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
+                    <span className="absolute bottom-2 left-3 text-[11px] font-bold text-white bg-black/40 px-2 py-0.5 rounded backdrop-blur-xs">
+                      Live Preview on Card
+                    </span>
+                  </div>
+                ) : (
+                  <div className="h-20 rounded-xl border border-dashed border-slate-300 flex flex-col items-center justify-center text-slate-400 text-xs">
+                    <ImageIcon className="w-5 h-5 mb-1 text-slate-400" />
+                    <span>No image set (will use fallback medical gradient)</span>
+                  </div>
+                )}
+
+                {/* Direct Image URL input */}
+                <div>
+                  <label className="block text-[10px] uppercase font-bold text-slate-500 mb-1">Image URL</label>
+                  <input
+                    type="url"
+                    value={editingCourse.image || ''}
+                    onChange={(e) => setEditingCourse({ ...editingCourse, image: e.target.value })}
+                    placeholder="Paste image link (https://...)"
+                    className="w-full p-2.5 bg-white border border-slate-200 rounded-xl text-xs"
+                  />
+                </div>
+
+                {/* File Upload from Computer / Phone */}
+                <div className="flex items-center gap-2">
+                  <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-700 font-bold text-xs rounded-lg border border-slate-300 transition-colors">
+                    <Plus className="w-3.5 h-3.5 text-teal-600" />
+                    <span>Upload Image from Device</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => {
+                            if (typeof reader.result === 'string') {
+                              setEditingCourse({ ...editingCourse, image: reader.result });
+                            }
+                          };
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                    />
+                  </label>
+                </div>
+
+                {/* 1-Click Presets */}
+                <div className="space-y-1.5 pt-1 border-t border-slate-200/80">
+                  <p className="text-[10px] font-bold uppercase text-slate-500">Or choose a healthcare preset:</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {[
+                      { label: 'Caregiver & Nursing', url: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80' },
+                      { label: 'Diagnostic Lab', url: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=800&q=80' },
+                      { label: 'BLS CPR First Aid', url: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80' },
+                      { label: 'Dental Clinic', url: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80' },
+                      { label: 'Hospital Pharmacy', url: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=800&q=80' },
+                      { label: 'Clinical OSCE', url: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=800&q=80' }
+                    ].map((preset, pIdx) => (
+                      <button
+                        key={pIdx}
+                        type="button"
+                        onClick={() => setEditingCourse({ ...editingCourse, image: preset.url })}
+                        className="px-2 py-1 bg-white hover:bg-slate-100 text-slate-700 text-[11px] rounded border border-slate-200 transition-colors"
+                      >
+                        {preset.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <div>

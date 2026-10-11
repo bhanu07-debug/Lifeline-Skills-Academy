@@ -57,17 +57,36 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
   return (
     <div className="flex flex-col bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all overflow-hidden group">
       {/* Visual Header / Banner with Medical Graphic */}
-      <div className={`relative h-44 bg-gradient-to-br ${theme.gradient} p-5 flex flex-col justify-between overflow-hidden text-white`}>
-        {/* Subtle decorative geometric grid */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+      <div className={`relative h-48 bg-gradient-to-br ${theme.gradient} p-5 flex flex-col justify-between overflow-hidden text-white`}>
+        {/* Admin Course Image */}
+        {course.image ? (
+          <>
+            <img
+              src={course.image}
+              alt={course.title}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                // If image fails, hide it to reveal the gradient and clinical icon
+                (e.currentTarget as HTMLImageElement).style.display = 'none';
+              }}
+            />
+            {/* Dark gradient scrim to guarantee text legibility & contrast */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-slate-950/30" />
+          </>
+        ) : (
+          /* Subtle decorative geometric grid fallback */
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+        )}
         
         {/* Category Header */}
         <div className="relative z-10 flex items-center justify-between">
-          <span className="text-xs font-semibold tracking-wider uppercase text-teal-300">
+          <span className="text-xs font-semibold tracking-wider uppercase text-teal-300 drop-shadow-xs">
             {course.category}
           </span>
           {course.featured && (
-            <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-300 bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded">
+            <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-300 bg-black/40 backdrop-blur-md px-2 py-0.5 rounded border border-white/10">
               <Sparkles className="w-3 h-3 text-amber-300" />
               Featured
             </span>
@@ -76,12 +95,12 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
 
         {/* Center Clinical Emblem & Icon */}
         <div className="relative z-10 flex items-center gap-3 mt-auto">
-          <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shrink-0">
+          <div className="w-11 h-11 rounded-xl bg-slate-900/60 backdrop-blur-md border border-white/20 flex items-center justify-center shrink-0 shadow-sm">
             <IconComponent className={`w-6 h-6 ${theme.accent}`} />
           </div>
           <div>
-            <p className="text-xs text-slate-300 font-mono">Hands-on Practicum</p>
-            <p className="text-xs font-bold text-white tracking-wide">
+            <p className="text-xs text-slate-300 font-mono drop-shadow-xs">Hands-on Practicum</p>
+            <p className="text-xs font-bold text-white tracking-wide drop-shadow-xs">
               {course.intakeSchedule}
             </p>
           </div>

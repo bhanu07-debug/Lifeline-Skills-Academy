@@ -31,7 +31,7 @@ export const CourseDetails: React.FC = () => {
   useMetaTags({
     title: course ? `${course.title} Course` : 'Course Details',
     description: course
-      ? `${course.shortDescription} Duration: ${course.duration}. Eligibility: ${course.eligibility}. Enroll at Life Line Skills Academy in Kathmandu.`
+      ? `${course.shortDescription} Duration: ${course.duration}. Eligibility: ${course.eligibility}. Enroll at Life Line Skills Academy in Butwal.`
       : 'Explore clinical healthcare training courses at Life Line Skills Academy Nepal.',
     canonicalPath: course ? `/courses/${course.slug}` : '/courses',
     keywords: course
@@ -41,7 +41,7 @@ export const CourseDetails: React.FC = () => {
           'healthcare courses in Nepal',
           'clinical skills academy Nepal',
           'vocational healthcare training',
-          'Kathmandu healthcare education'
+          'Butwal healthcare education'
         ]
       : ['healthcare training Nepal'],
     schemaData: course
@@ -56,7 +56,7 @@ export const CourseDetails: React.FC = () => {
             sameAs: 'https://lifelineskillsacademy.com.np',
             address: {
               '@type': 'PostalAddress',
-              addressLocality: 'Kathmandu',
+              addressLocality: 'Butwal',
               addressCountry: 'NP'
             }
           },
@@ -95,43 +95,72 @@ export const CourseDetails: React.FC = () => {
       {/* 1. COURSE HEADER BANNER */}
       <div className="bg-gradient-to-b from-blue-950 via-slate-900 to-slate-900 text-white pt-16 pb-20 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl space-y-6">
-            {/* Category and Status */}
-            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
-              <Link to="/courses" className="text-slate-400 hover:text-white">
-                Courses
-              </Link>
-              <span className="text-slate-600">/</span>
-              <span className="text-teal-300 uppercase tracking-wider">{course.category}</span>
-              <span className="text-slate-600">/</span>
-              <span className="text-slate-300 font-mono text-[11px]">{course.intakeSchedule}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Header Content */}
+            <div className={`space-y-6 ${course.image ? 'lg:col-span-7' : 'lg:col-span-12 max-w-4xl'}`}>
+              {/* Category and Status */}
+              <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                <Link to="/courses" className="text-slate-400 hover:text-white">
+                  Courses
+                </Link>
+                <span className="text-slate-600">/</span>
+                <span className="text-teal-300 uppercase tracking-wider">{course.category}</span>
+                <span className="text-slate-600">/</span>
+                <span className="text-slate-300 font-mono text-[11px]">{course.intakeSchedule}</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                {course.title}
+              </h1>
+
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
+                {course.shortDescription}
+              </p>
+
+              {/* Quick Action bar */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  to={`/apply?course=${encodeURIComponent(course.id)}`}
+                  className="px-7 py-3.5 bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-sm rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 inline-flex items-center gap-2"
+                >
+                  <GraduationCap className="w-4 h-4" />
+                  <span>Apply for This Course</span>
+                </Link>
+
+                <a
+                  href="#syllabus"
+                  className="px-5 py-3.5 bg-white/10 hover:bg-white/15 border border-white/20 text-white text-sm font-semibold rounded-xl transition-colors"
+                >
+                  View Syllabus
+                </a>
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              {course.title}
-            </h1>
-
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
-              {course.shortDescription}
-            </p>
-
-            {/* Quick Action bar */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
-              <Link
-                to={`/apply?course=${encodeURIComponent(course.id)}`}
-                className="px-7 py-3.5 bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-sm rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 inline-flex items-center gap-2"
-              >
-                <GraduationCap className="w-4 h-4" />
-                <span>Apply for This Course</span>
-              </Link>
-
-              <a
-                href="#syllabus"
-                className="px-5 py-3.5 bg-white/10 hover:bg-white/15 border border-white/20 text-white text-sm font-semibold rounded-xl transition-colors"
-              >
-                View Syllabus
-              </a>
-            </div>
+            {/* Featured Course Image Card */}
+            {course.image && (
+              <div className="lg:col-span-5">
+                <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl h-64 sm:h-80 bg-slate-800 group">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white">
+                    <span className="font-mono text-teal-300 bg-black/40 px-2.5 py-1 rounded-md backdrop-blur-xs border border-white/10">
+                      Simulation Practicum Lab
+                    </span>
+                    <span className="font-bold text-white/90">
+                      {course.duration}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

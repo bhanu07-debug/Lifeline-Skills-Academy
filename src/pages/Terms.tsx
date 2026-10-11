@@ -11,7 +11,7 @@ export const Terms: React.FC = () => {
           <span>Legal Agreement</span>
         </div>
         <h1 className="text-3xl font-black text-slate-900">Terms & Conditions</h1>
-        <p className="text-xs text-slate-500">Effective Date: January 2025 · Kathmandu, Nepal</p>
+        <p className="text-xs text-slate-500">Effective Date: January 2025 · Butwal, Nepal</p>
       </div>
 
       <div className="prose prose-slate max-w-none text-xs sm:text-sm text-slate-700 leading-relaxed space-y-6">

@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-4">
             <Logo variant="light" />
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm mt-3">
-              Life Line Skills Academy Pvt. Ltd. is a dedicated healthcare education and clinical skills training institute in Kathmandu, Nepal. We empower prospective caregivers, clinical assistants, and emergency responders through hands-on simulation training.
+              Life Line Skills Academy Pvt. Ltd. is a dedicated healthcare education and clinical skills training institute headquartered in Butwal, Nepal. We empower prospective caregivers, clinical assistants, and emergency responders through hands-on simulation training.
             </p>
             <div className="space-y-1.5 pt-1 text-xs text-slate-400">
               <p className="font-mono text-slate-300">{settings.registrationNumber}</p>

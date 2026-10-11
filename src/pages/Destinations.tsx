@@ -64,7 +64,7 @@ export const Destinations: React.FC = () => {
               </div>
               <h3 className="font-bold text-slate-900 text-base">Hospitals & Nursing Homes</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Kathmandu Valley, Pokhara, Chitwan, and major provincial hubs operate active 24/7 inpatient wards requiring trained bedside attendants and phlebotomists.
+                Butwal, Rupandehi, Chitwan, Pokhara, and major provincial hubs operate active 24/7 inpatient wards requiring trained bedside attendants and phlebotomists.
               </p>
               <ul className="text-[11px] text-slate-500 space-y-1 pt-1">
                 <li>• General Bedside Patient Assistance</li>
@@ -92,7 +92,7 @@ export const Destinations: React.FC = () => {
               </div>
               <h3 className="font-bold text-slate-900 text-base">Elderly Care & Hospices</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                As family dynamics evolve in Nepal, registered geriatric care homes in Lalitpur, Bhaktapur, and Kathmandu increasingly seek structured caregivers.
+                As family dynamics evolve in Nepal, registered geriatric care homes in Butwal, Lumbini Province, and major cities increasingly seek structured caregivers.
               </p>
               <ul className="text-[11px] text-slate-500 space-y-1 pt-1">
                 <li>• Activities of Daily Living (ADL)</li>

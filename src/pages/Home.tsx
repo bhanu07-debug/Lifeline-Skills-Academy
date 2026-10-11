@@ -24,14 +24,14 @@ export const Home: React.FC = () => {
 
   useMetaTags({
     title: 'Life Line Skills Academy | Healthcare Education & Skills Training Nepal',
-    description: 'Life Line Skills Academy Pvt. Ltd. provides hands-on healthcare training in Kathmandu, Nepal. Professional Caregiver, Medical Lab, BLS CPR, and Clinical OSCE courses.',
+    description: 'Life Line Skills Academy Pvt. Ltd. provides hands-on healthcare training in Butwal, Nepal. Professional Caregiver, Medical Lab, BLS CPR, and Clinical OSCE courses.',
     canonicalPath: '/',
     keywords: [
       'healthcare training in Nepal',
       'healthcare courses in Nepal',
       'healthcare skills academy Nepal',
       'healthcare training institute Nepal',
-      'vocational healthcare training Kathmandu'
+      'vocational healthcare training Butwal'
     ],
     schemaData: {
       '@context': 'https://schema.org',
@@ -43,7 +43,7 @@ export const Home: React.FC = () => {
       address: {
         '@type': 'PostalAddress',
         streetAddress: settings.address,
-        addressLocality: 'Kathmandu',
+        addressLocality: 'Butwal',
         addressCountry: 'NP'
       }
     }
@@ -86,7 +86,7 @@ export const Home: React.FC = () => {
 
               {/* Subheading */}
               <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                Life Line Skills Academy provides hands-on simulation training in patient caregiving, diagnostic laboratory procedures, and emergency life support. Learn from experienced clinicians in Kathmandu.
+                Life Line Skills Academy provides hands-on simulation training in patient caregiving, diagnostic laboratory procedures, and emergency life support. Learn from experienced clinicians at our head office and labs in Butwal.
               </p>
 
               {/* CTAs */}
@@ -119,8 +119,8 @@ export const Home: React.FC = () => {
                   <p className="text-xs text-slate-400 mt-0.5">Clinical Rigor</p>
                 </div>
                 <div className="col-span-2 sm:col-span-1">
-                  <p className="text-2xl font-black text-white">Kathmandu</p>
-                  <p className="text-xs text-slate-400 mt-0.5">Equipped Lab Facility</p>
+                  <p className="text-2xl font-black text-white">Butwal</p>
+                  <p className="text-xs text-slate-400 mt-0.5">Head Office & Lab Facility</p>
                 </div>
               </div>
             </div>
@@ -276,7 +276,7 @@ export const Home: React.FC = () => {
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs transition-colors"
                   >
                     <PhoneCall className="w-3.5 h-3.5" />
-                    <span>Visit Our Kathmandu Campus</span>
+                    <span>Visit Our Butwal Head Office</span>
                   </Link>
                 </div>
               </div>
@@ -387,8 +387,8 @@ export const Home: React.FC = () => {
               icon: Award
             },
             {
-              title: 'Central Kathmandu Hub',
-              desc: 'Convenient campus location in Bagbazar with easy transport connectivity.',
+              title: 'Central Butwal Head Office',
+              desc: 'Convenient head office and campus location in Butwal with easy transport connectivity.',
               icon: Sparkles
             },
             {

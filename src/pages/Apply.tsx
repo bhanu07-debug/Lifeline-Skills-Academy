@@ -303,7 +303,7 @@ export const Apply: React.FC = () => {
                     type="text"
                     value={formData.address}
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    placeholder="e.g., Bagbazar-28, Kathmandu"
+                    placeholder="e.g., Kalikanagar-11, Butwal"
                     className="w-full p-3 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:bg-white"
                     required
                   />
